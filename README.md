@@ -14,7 +14,7 @@ Este proyecto simula la gestión de una biblioteca, utilizando MongoDB como base
 
 ### Coleccion: libros
 
-bash
+```bash
 {
   "_id": 1,
   "titulo": "Cien Años de Soledad",
@@ -22,11 +22,11 @@ bash
   "año_publicacion": 1967, 
   "genero": "Realismo Mágico"
 }
-
+```
 
 ### Coleccion: usuarios
 
-bash
+```bash
 { 
  "_id": 1, 
  "nombre": "Juan Pérez",
@@ -34,11 +34,11 @@ bash
  "direccion": "Calle 123 A",
  "telefono": "3001234567"
 },
-
+```
 
 ### Coleccion: prestamos
 
-bash
+```bash
 {
   "_id": 1,
   "usuario_id": ObjectId("..."),
@@ -46,13 +46,13 @@ bash
   "fecha_prestamo": "2024-09-01T00:00:00Z",
   "fecha_devolucion": "2024-09-15T00:00:00Z"
 }
-
+```
 
 ## Consulta
 
 - Todos los prestamos realizados a los usuarios 
 
-bash
+```bash
 db.prestamos.aggregate([
   { $group: {
     _id: "$usuario_id",
@@ -87,7 +87,8 @@ db.prestamos.aggregate([
         as: "libro",
         in: "$$libro.titulo"
       }
-    }
-  }}
+    }
+  }}
 ]);
 
+```
